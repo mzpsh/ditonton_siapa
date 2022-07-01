@@ -1,16 +1,8 @@
-# ditonton_siapa
+# Ditonton Siapa?
+Ditonton Siapa merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert. yang menampilkan daftar movies dan tv series hasil request API menggunakan state management BLoC dan dilakukan Continous Integration melalui Codemagic.
 
-A new Flutter project.
+# CODE MAGIC BUILD STATUS BADGE
+[![Codemagic build status](https://api.codemagic.io/apps/62b69a4564710a4ba40cb489/62b69a4564710a4ba40cb488/status_badge.svg)](https://codemagic.io/apps/62b69a4564710a4ba40cb489/62b69a4564710a4ba40cb488/latest_build)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Author
+Galih Sansabila
