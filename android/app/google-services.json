@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "968191601927",
+    "project_id": "di-tonton-siapa",
+    "storage_bucket": "di-tonton-siapa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968191601927:android:c2a806a41335b3021f69a2",
+        "android_client_info": {
+          "package_name": "com.example.ditonton_siapa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "968191601927-vpnf769vuccdet8s0mats88tem6kiuvk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpAdqttbtIizjJjKvYLm9QEbf5exfD7II"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "968191601927-vpnf769vuccdet8s0mats88tem6kiuvk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
