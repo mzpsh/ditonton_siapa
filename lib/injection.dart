@@ -1,3 +1,4 @@
+import 'package:ditonton_siapa/common/ssl_pinning/http_ssl_pinning.dart';
 import 'package:ditonton_siapa/data/datasources/db/database_helper.dart';
 import 'package:ditonton_siapa/data/datasources/db/database_helper_tv.dart';
 import 'package:ditonton_siapa/data/datasources/local/local_data_source.dart';
@@ -177,5 +178,6 @@ void init() {
   locator.registerLazySingleton<DatabaseHelperTv>(() => DatabaseHelperTv());
 
   ///external
-  locator.registerLazySingleton(() => http.Client());
+  // locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpSSLPinning.client);
 }
