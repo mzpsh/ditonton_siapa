@@ -17,7 +17,6 @@ import 'package:ditonton_siapa/presentation/pages/movies/search_movie_page.dart'
 import 'package:ditonton_siapa/presentation/pages/movies/watchlist_movies_page.dart';
 import 'package:ditonton_siapa/presentation/pages/splashscreen.dart';
 import 'package:ditonton_siapa/presentation/pages/movies/top_rated_movies_page.dart';
-import 'package:ditonton_siapa/presentation/pages/tv/airing_today_page.dart';
 import 'package:ditonton_siapa/presentation/pages/tv/popular_tv_page.dart';
 import 'package:ditonton_siapa/presentation/pages/tv/search_tv_page.dart';
 import 'package:ditonton_siapa/presentation/pages/tv/tv_detail_page.dart';
@@ -93,20 +92,22 @@ class MyApp extends StatelessWidget {
                   builder: (_) => const TopRatedMoviesPage());
             case TvOnTheAirPage.routeName:
               return MaterialPageRoute(builder: (_) => const TvOnTheAirPage());
-            case AiringTodayPage.routeName:
-              return MaterialPageRoute(builder: (_) => const AiringTodayPage());
+            // case AiringTodayPage.routeName:
+            //   return MaterialPageRoute(builder: (_) => const AiringTodayPage());
             case PopularTvPage.routeName:
               return MaterialPageRoute(builder: (_) => const PopularTvPage());
             case AboutPage.routeName:
               return MaterialPageRoute(builder: (_) => const AboutPage());
             case SearchMoviesPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => SearchMoviesPage());
+              return MaterialPageRoute(
+                  builder: (_) => const SearchMoviesPage());
             case SearchTvPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => SearchTvPage());
+              return MaterialPageRoute(builder: (_) => const SearchTvPage());
             case WatchlistMoviesPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => WatchlistMoviesPage());
+              return MaterialPageRoute(
+                  builder: (_) => const WatchlistMoviesPage());
             case WatchlistTvPage.ROUTE_NAME:
-              return MaterialPageRoute(builder: (_) => WatchlistTvPage());
+              return MaterialPageRoute(builder: (_) => const WatchlistTvPage());
             case TvPage.routeName:
               return MaterialPageRoute(builder: (_) => const TvPage());
             default:

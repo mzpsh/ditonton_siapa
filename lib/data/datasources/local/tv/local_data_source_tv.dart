@@ -1,22 +1,42 @@
-import 'package:ditonton_siapa/common/exception.dart';
-import 'package:ditonton_siapa/data/datasources/db/database_helper_tv.dart';
-import 'package:ditonton_siapa/data/model/tv/tv_table.dart';
+import '../../../../common/exception.dart';
+import '../../../model/tv/tv_table.dart';
+import '../../db/database_helper_tv.dart';
 
 abstract class TvLocalDataSource {
-  Future<String> insertWatchlistTv(TvTable tvTable);
-  Future<String> removeWatchlistTv(TvTable tvTable);
+  Future<String> insertWatchlist(TvTable tv);
+  Future<String> removeWatchlist(TvTable tv);
   Future<TvTable?> getTvById(int id);
   Future<List<TvTable>> getWatchlistTv();
 }
 
 class TvLocalDataSourceImpl implements TvLocalDataSource {
-  final DatabaseHelperTv databaseHelperTv;
+  final DatabaseHelperTv databaseHelper;
 
-  TvLocalDataSourceImpl({required this.databaseHelperTv});
+  TvLocalDataSourceImpl({required this.databaseHelper});
+
+  @override
+  Future<String> insertWatchlist(TvTable tv) async {
+    try {
+      await databaseHelper.insertWatchlist(tv);
+      return 'Added to Watchlist';
+    } catch (e) {
+      throw DataBaseException(e.toString());
+    }
+  }
+
+  @override
+  Future<String> removeWatchlist(TvTable tv) async {
+    try {
+      await databaseHelper.removeWatchlist(tv);
+      return 'Removed from Watchlist';
+    } catch (e) {
+      throw DataBaseException(e.toString());
+    }
+  }
 
   @override
   Future<TvTable?> getTvById(int id) async {
-    final result = await databaseHelperTv.getTvById(id);
+    final result = await databaseHelper.getTvById(id);
     if (result != null) {
       return TvTable.fromMap(result);
     } else {
@@ -26,27 +46,7 @@ class TvLocalDataSourceImpl implements TvLocalDataSource {
 
   @override
   Future<List<TvTable>> getWatchlistTv() async {
-    final result = await databaseHelperTv.getWatchlistTv();
-    return result.map((e) => TvTable.fromMap(e)).toList();
-  }
-
-  @override
-  Future<String> insertWatchlistTv(TvTable tvTable) async {
-    try {
-      await databaseHelperTv.insertWatchlistTv(tvTable);
-      return 'Added to watchlist';
-    } catch (e) {
-      throw DataBaseException(e.toString());
-    }
-  }
-
-  @override
-  Future<String> removeWatchlistTv(TvTable tvTable) async {
-    try {
-      await databaseHelperTv.removeWatchList(tvTable);
-      return 'Remove from watchlist';
-    } catch (e) {
-      throw DataBaseException(e.toString());
-    }
+    final result = await databaseHelper.getWatchlistTv();
+    return result.map((data) => TvTable.fromMap(data)).toList();
   }
 }

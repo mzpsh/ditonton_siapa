@@ -1,6 +1,7 @@
 import 'package:ditonton_siapa/domain/entities/genre.dart';
 import 'package:equatable/equatable.dart';
 
+// ignore: must_be_immutable
 class MovieDetail extends Equatable {
   MovieDetail({
     required this.adult,
@@ -40,7 +41,7 @@ class MovieDetail extends Equatable {
   String posterPath;
   String releaseDate;
   int revenue;
-  int runtime;
+  int? runtime;
   String status;
   String tagline;
   String title;

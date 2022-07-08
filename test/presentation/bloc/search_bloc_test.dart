@@ -34,7 +34,7 @@ void main() {
   final tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
+    genreIds: const [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
@@ -48,7 +48,7 @@ void main() {
     voteCount: 13507,
   );
   final tMovieList = <Movie>[tMovieModel];
-  final tQuery = 'spiderman';
+  const tQuery = 'spiderman';
 
   group('Search Movies', () {
     test('Initial state should be empty', () {
@@ -62,7 +62,7 @@ void main() {
             .thenAnswer((_) async => Right(tMovieList));
         return searchMovieBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchMovieLoading(),
@@ -77,14 +77,14 @@ void main() {
       'Should emit [SearchLoading, SearchHasData[], SearchEmpty] when data is empty',
       build: () {
         when(mockSearchMovies.execute(tQuery))
-            .thenAnswer((_) async => Right(<Movie>[]));
+            .thenAnswer((_) async => const Right(<Movie>[]));
         return searchMovieBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchMovieLoading(),
-        SearchMovieHasData(<Movie>[]),
+        const SearchMovieHasData(<Movie>[]),
       ],
       verify: (bloc) {
         verify(mockSearchMovies.execute(tQuery));
@@ -95,14 +95,14 @@ void main() {
       'Should emit [SearchLoading, SearchError] when data is unsuccessful',
       build: () {
         when(mockSearchMovies.execute(tQuery))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return searchMovieBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQuery)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQuery)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchMovieLoading(),
-        SearchMovieError('Server Failure'),
+        const SearchMovieError('Server Failure'),
       ],
       verify: (bloc) {
         verify(mockSearchMovies.execute(tQuery));
@@ -112,7 +112,7 @@ void main() {
 
   final tTvShowModel = Tv(
       backdropPath: "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg",
-      genreIds: [10759, 10765],
+      genreIds: const [10759, 10765],
       id: 52814,
       name: "Halo",
       originalName: "Halo",
@@ -122,10 +122,10 @@ void main() {
       posterPath: "/nJUHX3XL1jMkk8honUZnUmudFb9.jpg",
       voteAverage: 8.7,
       voteCount: 472,
-      originCountry: [],
+      originCountry: const [],
       originalLanguage: '');
   final tTvShowList = <Tv>[tTvShowModel];
-  final tQueryTvShow = 'Halo';
+  const tQueryTvShow = 'Halo';
 
   group('Search Tv Shows', () {
     test('Initial state should be empty', () {
@@ -139,7 +139,7 @@ void main() {
             .thenAnswer((_) async => Right(tTvShowList));
         return searchTvShowBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQueryTvShow)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQueryTvShow)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchTvLoading(),
@@ -154,14 +154,14 @@ void main() {
       'Should emit [SearchLoading, SearchHasData[], SearchEmpty] when data is empty',
       build: () {
         when(mockSearchTvShows.execute(tQueryTvShow))
-            .thenAnswer((_) async => Right(<Tv>[]));
+            .thenAnswer((_) async => const Right(<Tv>[]));
         return searchTvShowBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQueryTvShow)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQueryTvShow)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchTvLoading(),
-        SearchTvHasData(<Tv>[]),
+        const SearchTvHasData(<Tv>[]),
       ],
       verify: (bloc) {
         verify(mockSearchTvShows.execute(tQueryTvShow));
@@ -172,14 +172,14 @@ void main() {
       'Should emit [SearchLoading, SearchError] when data is unsuccessful',
       build: () {
         when(mockSearchTvShows.execute(tQueryTvShow))
-            .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+            .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
         return searchTvShowBloc;
       },
-      act: (bloc) => bloc.add(OnQueryChanged(tQueryTvShow)),
+      act: (bloc) => bloc.add(const OnQueryChanged(tQueryTvShow)),
       wait: const Duration(milliseconds: 500),
       expect: () => [
         SearchTvLoading(),
-        SearchTvError('Server Failure'),
+        const SearchTvError('Server Failure'),
       ],
       verify: (bloc) {
         verify(mockSearchTvShows.execute(tQueryTvShow));

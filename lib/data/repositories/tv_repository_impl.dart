@@ -20,6 +20,7 @@ class TvRepositoryImpl implements TvRepository {
   TvRepositoryImpl({
     required this.remoteDataSource,
     required this.tvLocalDataSource,
+    // required Object localDataSource,
     //required this.networkInfo
   });
 
@@ -98,8 +99,8 @@ class TvRepositoryImpl implements TvRepository {
   @override
   Future<Either<Failure, String>> removeWatchlistTv(TvDetail tvDetail) async {
     try {
-      final result = await tvLocalDataSource
-          .removeWatchlistTv(TvTable.fromEntity(tvDetail));
+      final result =
+          await tvLocalDataSource.removeWatchlist(TvTable.fromEntity(tvDetail));
       return Right(result);
     } on DataBaseException catch (e) {
       return Left(DataBaseFailure(e.message));
@@ -109,8 +110,8 @@ class TvRepositoryImpl implements TvRepository {
   @override
   Future<Either<Failure, String>> saveWatchlistTv(TvDetail tvDetail) async {
     try {
-      final result = await tvLocalDataSource
-          .insertWatchlistTv(TvTable.fromEntity(tvDetail));
+      final result =
+          await tvLocalDataSource.insertWatchlist(TvTable.fromEntity(tvDetail));
       return Right(result);
     } on DataBaseException catch (e) {
       return Left(DataBaseFailure(e.message));

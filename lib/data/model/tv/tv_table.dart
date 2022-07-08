@@ -1,7 +1,7 @@
-import 'package:ditonton_siapa/data/model/tv/tv_model.dart';
 import 'package:ditonton_siapa/domain/entities/tv/tv.dart';
-import 'package:ditonton_siapa/domain/entities/tv/tv_detail.dart';
 import 'package:equatable/equatable.dart';
+
+import '../../../domain/entities/tv/tv_detail.dart';
 
 class TvTable extends Equatable {
   final int id;
@@ -9,30 +9,27 @@ class TvTable extends Equatable {
   final String? posterPath;
   final String? overview;
 
-  const TvTable(
-      {required this.id,
-      required this.name,
-      required this.posterPath,
-      required this.overview});
+  TvTable({
+    required this.id,
+    required this.name,
+    required this.posterPath,
+    required this.overview,
+  });
 
-  factory TvTable.fromEntity(TvDetail tvDetail) => TvTable(
-      id: tvDetail.id,
-      name: tvDetail.name,
-      posterPath: tvDetail.posterPath,
-      overview: tvDetail.overview);
+  factory TvTable.fromEntity(TvDetail tv) => TvTable(
+        id: tv.id,
+        name: tv.name,
+        posterPath: tv.posterPath,
+        overview: tv.overview,
+      );
 
   factory TvTable.fromMap(Map<String, dynamic> map) => TvTable(
-        id: map["id"],
+        id: map['id'],
         name: map['name'],
         posterPath: map['posterPath'],
         overview: map['overview'],
       );
 
-  factory TvTable.fromDTO(TvModel tvModel) => TvTable(
-      id: tvModel.id,
-      name: tvModel.name,
-      posterPath: tvModel.posterPath,
-      overview: tvModel.overview);
   Map<String, dynamic> toJson() => {
         'id': id,
         'name': name,
@@ -42,16 +39,12 @@ class TvTable extends Equatable {
 
   Tv toEntity() => Tv.watchlist(
         id: id,
-        name: name,
-        posterPath: posterPath,
         overview: overview,
+        posterPath: posterPath,
+        name: name,
       );
 
   @override
-  List<Object?> get props => [
-        id,
-        name,
-        posterPath,
-        overview,
-      ];
+  // TODO: implement props
+  List<Object?> get props => [id, name, posterPath, overview];
 }

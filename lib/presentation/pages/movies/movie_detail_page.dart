@@ -155,9 +155,9 @@ class DetailContent extends StatelessWidget {
                             Text(
                               _showGenres(movie.genres),
                             ),
-                            Text(
-                              _showDuration(movie.runtime),
-                            ),
+                            // Text(
+                            //   _showDuration(movie.runtime),
+                            // ),
                             Row(
                               children: [
                                 RatingBarIndicator(
@@ -208,7 +208,8 @@ class DetailContent extends StatelessWidget {
                                         child: CachedNetworkImage(
                                           imageUrl:
                                               'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                                          placeholder: (context, url) => const Center(
+                                          placeholder: (context, url) =>
+                                              const Center(
                                             child: CircularProgressIndicator(),
                                           ),
                                           errorWidget: (context, url, error) =>

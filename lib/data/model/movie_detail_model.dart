@@ -42,7 +42,7 @@ class MovieDetailModel extends Equatable {
   String posterPath;
   String releaseDate;
   int revenue;
-  int runtime;
+  int? runtime;
   String status;
   String tagline;
   String title;
