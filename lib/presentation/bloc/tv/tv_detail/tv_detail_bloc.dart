@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:ditonton_siapa/common/state_enum.dart';
-import 'package:ditonton_siapa/domain/usecase/get_watchlist_status.dart';
 import 'package:ditonton_siapa/domain/usecase/tv/get_recommendations_tv.dart';
 import 'package:ditonton_siapa/domain/usecase/tv/get_tv_detail.dart';
+import 'package:ditonton_siapa/domain/usecase/tv/get_watchlist_status_tv.dart';
 import 'package:ditonton_siapa/domain/usecase/tv/remove_watchlist_tv.dart';
 import 'package:ditonton_siapa/domain/usecase/tv/save_watchlist_tv.dart';
 import 'package:ditonton_siapa/presentation/bloc/tv/tv_detail/tv_detail_event.dart';
@@ -11,7 +11,7 @@ import 'package:ditonton_siapa/presentation/bloc/tv/tv_detail/tv_detail_state.da
 class DetailBlocTv extends Bloc<DetailEventTv, DetailStateTv> {
   final GetTvDetail getTvDetail;
   final GetRecommendationsTv getTvRecommendations;
-  final GetWatchListStatus getWatchListStatus;
+  final GetWatchlistStatusTv getWatchListStatus;
   final SaveWatchlistTv saveWatchlist;
   final RemoveWatchlistTv removeWatchlist;
 
